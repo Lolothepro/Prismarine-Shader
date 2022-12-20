@@ -39,7 +39,7 @@ void GetLighting(inout vec3 albedo, out vec3 shadow, vec3 viewPos, vec3 worldPos
         NoL = mix(NoL, 1.0, scattering);
     }
     
-    vec3 fullShadow = shadow * NoL;
+    vec3 fullShadow = max(shadow * NoL, vec3(0.0));
     
     #ifdef OVERWORLD
     #ifdef AURORA
